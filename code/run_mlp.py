@@ -17,8 +17,9 @@ def parse_args(argv=None):
     parser = pl.Trainer.add_argparse_args(parser)
     parser.add_argument('--earlystop_patience', type=int, default=15)
     parser = ArgumentParser(parents=[parser])
-    parser.set_defaults(gpus=1, default_root_dir=osp.abspath(
-        osp.join(osp.dirname(__file__), '../data/mlp')))
+    parser.set_defaults(accelerator='gpu', devices=1,
+                        default_root_dir=osp.abspath(
+                            osp.join(osp.dirname(__file__), '../data/mlp')))
     args = parser.parse_args(argv)
     return args
 
@@ -33,7 +34,7 @@ def main(args):
     early_stop_callback = EarlyStopping(
         'val_acc', patience=args.earlystop_patience, mode='max', verbose=True)
     trainer = pl.Trainer.from_argparse_args(
-        args, logger=logger, 
+        args, logger=logger,
         callbacks=[checkpoint_callback, early_stop_callback])
     trainer.fit(model, data_module)
     predictions = trainer.predict(datamodule=data_module, ckpt_path='best')

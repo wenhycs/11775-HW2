@@ -11,7 +11,7 @@ class BuildBagOfWords(System):
 
     def get_num_pipeline(self, resources, *, args):
         self.args = args
-        return len(resources.get('cpu'))
+        return min(8, len(resources.get('cpu')))
 
     def get_stages(self, resources):
         stages = [

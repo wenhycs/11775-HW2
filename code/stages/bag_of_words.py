@@ -11,9 +11,14 @@ class BagOfWords(Stage):
     """
 
     def allocate_resource(self, resources, *, weight_path):
-        with open(weight_path, 'rb') as f:
-            self.weight = pickle.load(f)
+        self.weight_path = weight_path
+        self.weight = None
         return [resources]
+
+    def reset(self):
+        if self.weight is None:
+            with open(self.weight_path, 'rb') as f:
+                self.weight = pickle.load(f)
 
     def get_bag_of_words(self, features: np.ndarray) -> np.ndarray:
         """
