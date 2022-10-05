@@ -10,7 +10,7 @@ This code template is built based on [PyTorch](https://pytorch.org) and [Pyturbo
 SIFT feature, K-Means, and Bag-of-Words must run on CPUs, while CNN features and MLP classifiers can run on GPUs.
 For AWS, a `g4dn.4xlarge` instance should be sufficient for the full pipeline.
 During initial debugging, you are recommended to use a smaller instance to save money, e.g., `g4dn.xlarge` or a CPU-only equivalent for the SIFT part.
-For more about AWS, see this [Doc](https://docs.google.com/document/d/1XkpGSzInT5TJz0hc0jUd7j5kGvuGO_wTOATW8pp4GCg/edit?usp=sharing) (Andrew ID required).
+For more about AWS, see this [Doc](https://docs.google.com/document/d/15rofNFH1PWmcZyCek99sN4FXUZSYZw4FH8NpP9FNIz0/edit) (Andrew ID required).
 
 ## Install Dependencies
 
