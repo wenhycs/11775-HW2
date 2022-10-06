@@ -39,7 +39,7 @@ class CNN3DFeature(Stage):
             raise NotImplementedError
             self.model = self.model.to(self.device).eval()
 
-    def extract_cnn3d_features(self, clip: np.ndarray) -> np.ndarray:
+    def extract_cnn3d_features(self, clip: torch.Tensor) -> torch.Tensor:
         """
         frame: [T x H x W x C] in uint8 [0, 255]
 
@@ -55,6 +55,6 @@ class CNN3DFeature(Stage):
     def process(self, task):
         task.start(self)
         frames = task.content
-        features = self.extract_cnn3d_features(frames)
+        features = self.extract_cnn3d_features(frames).cpu().numpy()
         task.meta['sequence_id'] = task.meta['batch_id']
         return task.finish(features)

@@ -1,6 +1,5 @@
 import cv2
 import numpy as np
-import torch
 
 from pyturbo import Stage, Task
 
