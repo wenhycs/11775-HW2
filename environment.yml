@@ -1,6 +1,6 @@
 name: 11775-hw2
 dependencies:
-  - python>=3.9
+  - python=3.9
   - ffmpeg
   - autopep8
   - pip
