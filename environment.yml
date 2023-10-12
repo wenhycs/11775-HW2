@@ -11,6 +11,6 @@ dependencies:
     - scipy<1.9.0
     - pandas
     - opencv-python>=4.5
-    - pytorch_lightning>=1.5
+    - pytorch_lightning>=1.5, <2.0
     - av>=8.0
     - py-turbo>=0.7
