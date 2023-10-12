@@ -14,3 +14,4 @@ dependencies:
     - pytorch_lightning>=1.5, <2.0
     - av>=8.0
     - py-turbo>=0.7
+    - torchmetrics<0.11
