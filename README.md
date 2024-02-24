@@ -9,7 +9,7 @@ In this homework we will perform a video classification task with visual feature
 This code template is built based on [PyTorch](https://pytorch.org) and [Pyturbo](https://github.com/CMU-INF-DIVA/pyturbo) for Linux to fully utilize the computation of multiple CPU cores and GPUs.
 SIFT feature, K-Means, and Bag-of-Words must run on CPUs, while CNN features and MLP classifiers can run on GPUs.
 For GCP, an instance with 16 vCPU (e.g. `n1-standard-16`) and a Nvidia T4 GPU instance should be sufficient for the full pipeline.
-During initial debugging, you are recommended to use a smaller instance to save money, e.g., `n1-standard-1` (only 1 vCPU) with Nvidia T4 or without GPU for the SIFT part.
+During initial debugging, you are recommended to use a smaller instance to save money, e.g., `n1-standard-x` (`x` = the number of vCPUs) with Nvidia T4 or without GPU for the SIFT part. You may not be able to start a GPU VM with a very small number of vCPUs (e.g., only 1 vCPU). You can gradually increase the number of vCPUs and see whether a GPU VM can be launched.
 
 ## Install Dependencies
 
@@ -123,4 +123,4 @@ python code/run_mlp.py cnn --feature_dir data/cnn --num_features <num_feat>
 ```
 
 By default, training logs and predictions are stored under `data/mlp/model_name/version_xxx/`.
-You can directly submit the CSV file to [Kaggle](https://www.kaggle.com/competitions/cmu-11775-f23-hw2-video-based-med/overview).
+You can directly submit the CSV file to [Kaggle](https://www.kaggle.com/t/7306fcbea5b042a2bae8acff988c0990).
